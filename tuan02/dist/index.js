@@ -87,4 +87,22 @@ const cau9 = new Promise((resolve) => {
 }).then((evenNums) => {
     console.log("Cau 9: Even numbers are", evenNums);
 });
+// cau 10 Use .finally() to log "Done" when a Promise finishes (success or failure).
+const cau10 = new Promise((resolve, reject) => {
+    const success = Math.random() > 0.5;
+    setTimeout(() => {
+        if (success) {
+            resolve("Cau 10: Operation successful");
+        }
+        else {
+            reject(new Error("Cau 10: Operation failed"));
+        }
+    }, 1000);
+}).then((message) => {
+    console.log(message);
+}).catch((err) => {
+    console.log(err.message);
+}).finally(() => {
+    console.log("Cau 10: Done");
+});
 //# sourceMappingURL=index.js.map
