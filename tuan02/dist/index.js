@@ -53,6 +53,20 @@ const promise1 = simulateTask(1000);
 const promise2 = simulateTask(2000);
 const promise3 = simulateTask(1500);
 Promise.all([promise1, promise2, promise3]).then((results) => {
-    console.log("Cau 6: All tasks done", results);
+    //   console.log("Cau 6: All tasks done", results);
+});
+// cau 7 Use Promise.race() to return whichever Promise resolves first.
+const cau7P1 = new Promise((resolve, reject) => {
+    setTimeout(resolve, 500, "Task 1 finished");
+});
+const cau7P2 = new Promise((resolve, reject) => {
+    setTimeout(resolve, 100, "Task 2 finished");
+});
+Promise.race([cau7P1, cau7P2])
+    .then((result) => {
+    console.log("Cau 7: First finished task:", result);
+})
+    .catch((err) => {
+    console.log("Cau 7: Error:", err.message);
 });
 //# sourceMappingURL=index.js.map
