@@ -81,3 +81,24 @@ Promise.race([cau7P1, cau7P2])
   .catch((err) => {
     console.log("Cau 7: Error:", err.message);
   });
+
+//   cau8 Create a Promise chain: square the number 2, then double it, then add 5.
+const cau8= Promise.resolve(2)
+        .then((num) => num * num)
+        .then((num) => num * 2)
+        .then((num) => num + 5)
+        .then((result) => {
+        console.log("Cau 8: Final result is", result);
+        });
+
+
+// cau9 Write a Promise that reads an array after 1 second and filters even numbers.
+const cau9= new Promise<number[]>((resolve)=>{
+    setTimeout(()=>{
+        resolve([1,2,3,4,5,6,7,8,9,10]);
+    }, 1000);
+}).then((arr)=>{
+    return arr.filter(num => num % 2 === 0);
+}).then((evenNums)=>{
+    console.log("Cau 9: Even numbers are", evenNums);
+});
