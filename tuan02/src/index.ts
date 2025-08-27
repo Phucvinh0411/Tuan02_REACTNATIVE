@@ -42,16 +42,18 @@ const cau4 = new Promise<number>((resolve, reject) => {
   }
 });
 
-cau4
-  .then((num) => console.log("Cau 4: Random number is", num))
-  .catch((err) => console.log(err.message));
+// cau4
+//   .then((num) => console.log("Cau 4: Random number is", num))
+//   .catch((err) => console.log(err.message));
 
 
 // cau5 Create a function simulateTask(time) that returns a Promise resolving with "Taskdone" after time ms.
-// function simulateTask(time: number): Promise<string>{
-//     return new Promise((resolve)=>{
-//         setTimeout(()=>{
-//             resolve("Taskdone");
-//         }, time);
-//     });
-// }
+function simulateTask(time: number): Promise<string>{
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve("Taskdone");
+        }, time);
+    });
+}
+
+simulateTask(1500).then((mess)=> console.log(mess));
