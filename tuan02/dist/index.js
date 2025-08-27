@@ -36,9 +36,9 @@ const cau4 = new Promise((resolve, reject) => {
         reject(new Error("Cau 4: Errol cau4"));
     }
 });
-// cau4
-//   .then((num) => console.log("Cau 4: Random number is", num))
-//   .catch((err) => console.log(err.message));
+cau4
+    .then((num) => console.log("Cau 4: Random number is", num))
+    .catch((err) => console.log(err.message));
 // cau5 Create a function simulateTask(time) that returns a Promise resolving with "Taskdone" after time ms.
 function simulateTask(time) {
     return new Promise((resolve) => {
@@ -47,5 +47,12 @@ function simulateTask(time) {
         }, time);
     });
 }
-simulateTask(1500).then((mess) => console.log(mess));
+// simulateTask(1500).then((mess)=> console.log(mess));
+// cau 6 Use Promise.all() to run 3 simulated Promises in parallel and print the result.
+const promise1 = simulateTask(1000);
+const promise2 = simulateTask(2000);
+const promise3 = simulateTask(1500);
+Promise.all([promise1, promise2, promise3]).then((results) => {
+    console.log("Cau 6: All tasks done", results);
+});
 //# sourceMappingURL=index.js.map
